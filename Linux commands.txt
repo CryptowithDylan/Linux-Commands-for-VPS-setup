@@ -1,0 +1,65 @@
+**for changing your password use this command**
+passwd
+
+-Profit Trailer
+(for changing directory)
+cd /var/opt
+
+(making a profit trailer directory on server)
+mkdir pt
+
+changing over to profit trailer directory)
+cd pt
+
+(updating)
+sudo apt-get update
+
+(for downloading java)
+sudo apt-get install default-jdk
+
+(installing nodejs)
+sudoapt-get install nodejs
+
+(installing npm & pm2)
+sudo apt-get install npm
+npm install pm2@latest -g
+
+(running profit trailer)
+
+cd /var/opt/pt
+chmod +x ProfitTrailer.jar
+pm2 start pm2-ProfitTrailer.json
+
+(checking logs/restarting bot/stopping bot)
+pm2 log 0 : shows log of command line for the bot
+pm2 reload 0 : restarts and reloads the bot
+pm2 stop 0 : stops the bot
+
+(for monitoring)
+YOURVPSIPADDRESS:8081
+-Profit Tracker
+(creating Profit Tracker directory)
+cd /var/opt
+makdir ptt
+
+(creating pm2-start-ptt.json file)
+{
+  "apps": [
+    {
+      "name": "PTTracker",
+      "cwd": ".",
+      "script": "PtTracker",
+      "node_args": [],
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "exec_mode": "fork",
+      "autorestart": false
+    }
+  ]
+}
+
+(Running PTT)
+chmod +x ProfitTracker
+pm2 start pm2-start-ptt.json
+
+(Monitoring)
+YOURVPSIPADDRESS:3000
